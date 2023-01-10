@@ -1,5 +1,5 @@
 version: "1"
-name: "users"
+name: "transactions"
 services:
   backend:
     build:
@@ -10,14 +10,14 @@ services:
       - 8002:80
     volumes:
       - .:/app
-    depends_on:
-      - db
+  #   depends_on:
+  #     - db
   
-  db:
-    image: postgres
-    restart: always
-    environment:
-      - POSTGRES_USER=user
-      - POSTGRES_PASSWORD=password
-    ports:
-      - '54320:5432'
+  # db:
+  #   image: postgres
+  #   restart: always
+  #   environment:
+  #     - POSTGRES_USER=user
+  #     - POSTGRES_PASSWORD=password
+  #   ports:
+  #     - '54320:5432'

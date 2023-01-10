@@ -8,7 +8,7 @@ from fastapi import FastAPI
 dotenv_path = join(dirname(dirname(__file__)), ".env")
 load_dotenv(dotenv_path)
 
-USERS_MICROSERVICE_PORT = os.environ.get("USERS_MICROSERVICE_PORT")
+USERS_MICROSERVICE_PORT = 8001 # os.environ.get("USERS_MICROSERVICE_PORT")
 
 app = FastAPI()
 

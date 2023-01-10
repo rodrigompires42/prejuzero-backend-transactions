@@ -1,6 +1,7 @@
 import os
 from os.path import join, dirname
 from dotenv import load_dotenv
+import requests
 
 from fastapi import FastAPI
 
@@ -16,6 +17,8 @@ async def root():
     return {"message": "transactions microservice"}
 
 
-@app.get("/transactions")
-def list_transactions():
-    return {"transactions": "teste"}
+@app.get("/transactions/{user_id}")
+def list_transactions_by_user(user_id: int):
+    response = requests.get(f"http://localhost:{USERS_MICROSERVICE_PORT}/users/{user_id}")
+    user = response.json()
+    return {"user": user["user_name"], "transactions": [{"teste"}]}
